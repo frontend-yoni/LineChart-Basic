@@ -1,0 +1,195 @@
+:root {
+    --yAxisWidth: 50px;
+    --xAxisHeight: 30px;
+    --chartTopSpacing: 15px;
+    --borderColor: rgba(68, 96, 119, 0.2);
+    --CANVAS_PADDING: 10px; /* Aligns LineChart,js */
+}
+
+p {
+    font-size: 14px;
+    font-family: Arial;
+    color: #333;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.papaDiv {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 150px;
+    bottom: 150px;
+}
+
+.chartAreDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.papaDiv svg {
+    position: absolute;
+    width: calc(100% - var(--yAxisWidth));
+    height: calc(100% - var(--xAxisHeight) - var(--chartTopSpacing));
+
+    left: var(--yAxisWidth);
+    top: var(--chartTopSpacing);
+    bottom: var(--xAxisHeight);
+}
+
+.chartBG {
+    position: absolute;
+    width: calc(100% - var(--yAxisWidth));
+    height: calc(100% - var(--xAxisHeight));
+
+    left: var(--yAxisWidth);
+    top: 0;
+    bottom: var(--xAxisHeight);
+
+    padding-top: calc(var(--chartTopSpacing) + var(--CANVAS_PADDING));
+    padding-bottom: var(--CANVAS_PADDING);
+    box-sizing: border-box;
+    border: 1px solid var(--borderColor);
+    border-top: none;
+}
+
+.bgDiv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.yAxis {
+    position: absolute;
+    top: var(--chartTopSpacing);
+    width: var(--yAxisWidth);
+    bottom: var(--xAxisHeight);
+    left: 0;
+
+    padding-top: var(--CANVAS_PADDING);
+    padding-bottom: var(--CANVAS_PADDING);
+}
+
+.xAxis {
+    position: absolute;
+    bottom: 0;
+    left: var(--yAxisWidth);
+    height: var(--xAxisHeight);
+    right: 0;
+}
+
+path {
+    stroke-width: 2px;
+    fill: none;
+    stroke: skyblue;
+}
+
+circle {
+    fill: skyblue;
+    stroke: none;
+}
+
+.yAxisTickP {
+    justify-content: flex-end;
+    margin: 0;
+    display: flex;
+    align-items: flex-end;
+    height: 25%;
+    width: 100%;
+    position: relative;
+
+    top: 6px;
+
+    box-sizing: border-box;
+    padding-right: 5px;
+}
+
+.yAxisTickP:first-child {
+    position: absolute;
+    height: 14px;
+    align-items: center;
+
+    top: 2px;
+}
+
+.yAxisTickP:last-child {
+    position: absolute;
+    height: 14px;
+    align-items: center;
+
+    top: initial;
+    bottom: 0px;
+}
+
+.bgTickDiv {
+    height: 25%;
+    width: 100%;
+    border-top: 1px solid var(--borderColor);
+    box-sizing: border-box;
+}
+
+.xAxisTickContainer{
+    position: absolute;
+    left: var(--CANVAS_PADDING);
+    right: var(--CANVAS_PADDING);
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.xAxisTextContainer{
+    position: absolute;
+    left: var(--CANVAS_PADDING);
+    right: var(--CANVAS_PADDING);
+    top: 8px;
+}
+
+.xAxisTick{
+    flex: 1;
+    border-right: 1px solid var(--borderColor);
+    height: 5px;
+}
+
+.xAxisTick:first-child{
+    position: absolute;
+    left:0;
+    width: 1px;
+}
+
+.xAxisText{
+    position: absolute;
+    margin: 0;
+    font-size: 11px;
+    transform: translateX(-50%);
+    background: white;
+    white-space: nowrap;
+}
+
+.xAxisText:nth-child(even){
+    transform: translate(-50%, 110%);
+}
+
+.chartSVG g.animating{
+    pointer-events: none;
+}
+
+.rick{
+    position: fixed;
+    background: url("rick.png");
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    transform: translate(-50%, -100%);
+    display: none;
+}

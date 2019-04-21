@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head lang="en">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="src/resources/MainStyle.css">
+    <!-- endinject -->
+
+    <!-- inject:js -->
+    <script src="src/chart/BGBuilder.js"></script>
+    <script src="src/chart/LineChart.js"></script>
+    <script src="src/chart/SeriesBuilder.js"></script>
+    <script src="src/chart/TooltipUtil.js"></script>
+    <script src="src/chart/XAxisBuilder.js"></script>
+    <script src="src/chart/YAxisBuilder.js"></script>
+    <script src="src/mock/mockData.js"></script>
+    <script src="src/main/ShragaLab.js"></script>
+    <script src="src/animation/AnimationUtil.js"></script>
+    <script src="src/common/FormattingUtil.js"></script>
+    <script src="src/common/JJGeneralUtils.js"></script>
+    <script src="src/common/JJPower.js"></script>
+    <script src="src/common/LayoutUtil.js"></script>
+    <script src="src/common/Manager.js"></script>
+    <script src="src/common/bezier.js"></script>
+    <!-- endinject -->
+</head>
+
+<script>
+    let papaDiv;
+    let mockData;
+    let shragaLab = new ShragaLab();
+
+    window.onload = function () {
+        mockData = getMockData();
+        papaDiv = JJPower.query(".papaDiv");
+
+        shragaLab.setData(mockData);
+        drawComponent();
+    };
+
+    window.onresize = function () {
+        shragaLab.resize();
+    };
+
+    function drawComponent() {
+        shragaLab.setExternalDiv(papaDiv);
+        shragaLab.drawComponent();
+    }
+
+</script>
+
+
+<body>
+<div class="papaDiv">
+</div>
+</body>
+</html>
